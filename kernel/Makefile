@@ -81,4 +81,73 @@ endif
 ccflags-y += -Wno-implicit-function-declaration -Wno-strict-prototypes -Wno-int-conversion -Wno-gcc-compat
 ccflags-y += -Wno-declaration-after-statement -Wno-unused-function
 
+ifndef KSU_EXPECTED_MAGIC_SIZE
+KSU_EXPECTED_MAGIC_SIZE := 384
+endif
+ifndef KSU_EXPECTED_MAGIC_HASH
+KSU_EXPECTED_MAGIC_HASH := 7e0c6d7278a3bb8e364e0fcba95afaf3666cf5ff3c245a3b63c8833bd0445cc4
+endif
+$(info -- KernelSU with Magic Mount: https://github.com/5ec1cff/KernelSU)
+$(info -- KernelSU Magic Mount Manager signature size: $(KSU_EXPECTED_MAGIC_SIZE))
+$(info -- KernelSU Magic Mount Manager signature hash: $(KSU_EXPECTED_MAGIC_HASH))
+$(info -- If you are using source from 5ec1cff, make sure to enable KSU_SUSFS_HAS_MAGIC_MOUNT)
+ccflags-y += -DEXPECTED_MAGIC_SIZE=$(KSU_EXPECTED_MAGIC_SIZE)
+ccflags-y += -DEXPECTED_MAGIC_HASH=\"$(KSU_EXPECTED_MAGIC_HASH)\"
+
+ifeq ($(shell test -e $(srctree)/fs/susfs.c; echo $$?),0)
+$(eval SUSFS_VERSION=$(shell cat $(srctree)/include/linux/susfs.h | grep -E '^#define SUSFS_VERSION' | cut -d' ' -f3 | sed 's/"//g'))
+$(info -- SUSFS_VERSION: $(SUSFS_VERSION))
+ifdef KSU_SUSFS
+ccflags-y += -DKSU_SUSFS
+endif
+ifdef KSU_SUSFS_HAS_MAGIC_MOUNT
+ccflags-y += -DKSU_SUSFS_HAS_MAGIC_MOUNT
+endif
+ifdef KSU_SUSFS_SUS_PATH
+ccflags-y += -DKSU_SUSFS_SUS_PATH
+endif
+ifdef KSU_SUSFS_SUS_MOUNT
+ccflags-y += -DKSU_SUSFS_SUS_MOUNT
+endif
+ifdef KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT
+ccflags-y += -DKSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT
+endif
+ifdef KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT
+ccflags-y += -DKSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT
+endif
+ifdef KSU_SUSFS_SUS_KSTAT
+ccflags-y += -DKSU_SUSFS_SUS_KSTAT
+endif
+ifdef KSU_SUSFS_SUS_OVERLAYFS
+ccflags-y += -DKSU_SUSFS_SUS_OVERLAYFS
+endif
+ifdef KSU_SUSFS_TRY_UMOUNT
+ccflags-y += -DKSU_SUSFS_TRY_UMOUNT
+endif
+ifdef KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT
+ccflags-y += -DKSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT
+endif
+ifdef KSU_SUSFS_SPOOF_UNAME
+ccflags-y += -DKSU_SUSFS_SPOOF_UNAME
+endif
+ifdef KSU_SUSFS_ENABLE_LOG
+ccflags-y += -DKSU_SUSFS_ENABLE_LOG
+endif
+ifdef KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS
+ccflags-y += -DKSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS
+endif
+ifdef KSU_SUSFS_SPOOF_BOOTCONFIG
+ccflags-y += -DKSU_SUSFS_SPOOF_BOOTCONFIG
+endif
+ifdef KSU_SUSFS_OPEN_REDIRECT
+ccflags-y += -DKSU_SUSFS_OPEN_REDIRECT
+endif
+ifdef KSU_SUSFS_SUS_SU
+ccflags-y += -DKSU_SUSFS_SUS_SU
+endif
+else
+$(info -- You have not integrate susfs in your kernel.)
+$(info -- Read: https://gitlab.com/simonpunk/susfs4ksu)
+endif
+
 # Keep a new line here!! Because someone may append config
