@@ -1,4 +1,4 @@
-**English** | [简体中文](/docs/README_CN.md) | [Türkçe](/docs/README_TR.md)
+**English** | [简体中文](/docs/README_CN.md) | [Türkçe](/docs/README_TR.md) | [Português (Brasil)](/docs/README_PT-BR.md)
 
 # KernelSU Next
 
@@ -6,8 +6,8 @@
 
 A Kernel-based root solution for Android devices.
 
-[![Latest release](https://img.shields.io/github/v/release/rifsxd/KernelSU-Next?label=Release&logo=github)](https://github.com/rifsxd/KernelSU-Next/releases/latest)
-[![Nightly Release](https://img.shields.io/badge/Nightly%20release-gray?logo=hackthebox&logoColor=fff)](https://nightly.link/rifsxd/KernelSU-Next/workflows/build-manager/next/manager)
+[![Latest Release](https://img.shields.io/github/v/release/rifsxd/KernelSU-Next?label=Release&logo=github)](https://github.com/rifsxd/KernelSU-Next/releases/latest)
+[![Nightly Release](https://img.shields.io/badge/Nightly%20Release-gray?logo=hackthebox&logoColor=fff)](https://nightly.link/rifsxd/KernelSU-Next/workflows/build-manager/next/manager)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-orange.svg?logo=gnu)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![GitHub License](https://img.shields.io/github/license/rifsxd/KernelSU-Next?logo=gnu)](/LICENSE)
 
@@ -19,16 +19,16 @@ A Kernel-based root solution for Android devices.
 
 ## Compatibility State
 
-KernelSU Next officially supports most Android kernels starting from 4.4 upto 6.6.
+KernelSU Next officially supports most Android kernels starting from 4.4 up to 6.6.
  - GKI 2.0 (5.10+) kernels can run pre-built images and LKM/KMI.
  - GKI 1.0 (4.19 - 5.4) kernels need to rebuilt with KernelSU driver.
- - EOL (<4.14) kernels also need to be rebuilt with KernelSU driver. (3.18+ is experimental and may need some function backports)
+ - EOL (<4.14) kernels also need to be rebuilt with KernelSU driver (3.18+ is experimental and may need some function backports).
 
 Currently, only `arm64-v8a` is supported.
 
 ## Usage
 
-- [Installation Instruction](https://rifsxd.github.io/KernelSU-Next/)
+- [Installation instruction](https://rifsxd.github.io/KernelSU-Next/)
 
 ## Security
 
@@ -45,5 +45,5 @@ For information on reporting security vulnerabilities in KernelSU, see [SECURITY
 - [Magisk](https://github.com/topjohnwu/Magisk): the powerful root tool.
 - [genuine](https://github.com/brevent/genuine/): apk v2 signature validation.
 - [Diamorphine](https://github.com/m0nad/Diamorphine): some rootkit skills.
-- [KernelSU](https://github.com/tiann/KernelSU): thanks to tiann or else KernelSU Next wouldn't even exist.
+- [KernelSU](https://github.com/tiann/KernelSU): thanks to tiann, or else KernelSU Next wouldn't even exist.
 - [Magic Mount Port](https://github.com/5ec1cff/KernelSU/blob/main/userspace/ksud/src/magic_mount.rs): 💜 5ec1cff for saving KernelSU!

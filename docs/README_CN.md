@@ -1,4 +1,4 @@
-[English](README.md) | **简体中文** | [Türkçe](README_TR.md)
+[English](README.md) | **简体中文** | [Türkçe](README_TR.md) | [Português (Brasil)](/docs/README_PT-BR.md)
 
 # KernelSU Next
 
@@ -6,8 +6,8 @@
 
 安卓基于内核的 Root 方案
 
-[![Latest release](https://img.shields.io/github/v/release/rifsxd/KernelSU-Next?label=Release&logo=github)](https://github.com/rifsxd/KernelSU-Next/releases/latest)
-[![Nightly Release](https://img.shields.io/badge/Nightly%20release-gray?logo=hackthebox&logoColor=fff)](https://nightly.link/rifsxd/KernelSU-Next/workflows/build-manager/next/manager)
+[![Latest Release](https://img.shields.io/github/v/release/rifsxd/KernelSU-Next?label=Release&logo=github)](https://github.com/rifsxd/KernelSU-Next/releases/latest)
+[![Nightly Release](https://img.shields.io/badge/Nightly%20Release-gray?logo=hackthebox&logoColor=fff)](https://nightly.link/rifsxd/KernelSU-Next/workflows/build-manager/next/manager)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-orange.svg?logo=gnu)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![GitHub License](https://img.shields.io/github/license/rifsxd/KernelSU-Next?logo=gnu)](/LICENSE)
 
@@ -15,7 +15,7 @@
 
 1. 基于内核的 SU 和权限管理
 2. 基于 [Magic Mount](https://github.com/topjohnwu/Magisk/blob/c512496847d182526f2043295ecfd275398eccac/docs/releases/26100.md#new-magic-mount-implementation) 的模块系统
-3. [App Profile](https://kernelsu.org/guide/app-profile.html)：把 Root 权限关进笼子里
+3. [App Profile](https://kernelsu.org/zh_CN/guide/app-profile.html)：把 Root 权限关进笼子里
 
 ## 兼容状态
 
