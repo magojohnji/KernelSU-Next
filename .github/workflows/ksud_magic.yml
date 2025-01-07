@@ -25,13 +25,13 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Download artifacts
-      uses: actions/download-artifact@v4
+    # - name: Download artifacts
+    #   uses: actions/download-artifact@v4
     
-    - name: Prepare LKM fies
-      if: ${{ inputs.pack_lkm }}
-      run: |
-        cp android*-lkm/*_kernelsu.ko ./userspace/ksud_magic/bin/aarch64/
+    # - name: Prepare LKM fies
+    #   if: ${{ inputs.pack_lkm }}
+    #   run: |
+    #     cp android*-lkm/*_kernelsu.ko ./userspace/ksud_magic/bin/aarch64/
         
     - name: Setup rustup
       run: |
