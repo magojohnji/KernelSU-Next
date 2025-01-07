@@ -86,7 +86,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ksud_overlayfs-aarch64-linux-android
-          path: ksud_overlayfs
+          path: .
       
       - name: List extracted files
         run: ls -R ./
