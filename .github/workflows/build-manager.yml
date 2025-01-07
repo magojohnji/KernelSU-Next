@@ -87,13 +87,13 @@ jobs:
         with:
           name: ksud_overlayfs-aarch64-linux-android
           path: ksud_overlayfs
+      
+      - name: List extracted files
+        run: ls -R ./
         
       - name: Copy ksud_overlayfs to app jniLibs
         run: |
           cp -f ksud_overlayfs/aarch64-linux-android/release/ksud ../manager/app/src/main/jniLibs/arm64-v8a/libksud_overlayfs.so
-
-      - name: List extracted files
-        run: ls -R ./
       
       # - name: Download arm64 ksud_magic
       #   uses: actions/download-artifact@v4
