@@ -66,7 +66,7 @@
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
     <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next's mount system.</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next\'s mount system.</string>
     <string name="restart_required">Restart Required</string>
     <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
     <string name="restart_now">Restart Now</string>

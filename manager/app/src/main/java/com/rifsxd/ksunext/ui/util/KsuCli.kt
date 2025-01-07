@@ -427,12 +427,6 @@ fun getAppProfileTemplate(id: String): String {
         .to(ArrayList(), null).exec().out.joinToString("\n")
 }
 
-fun moduleMigration(): Boolean {
-    val shell = getRootShell()
-    // mirgate modules for module system switch
-    return ShellUtils.fastCmdResult(shell, "mv /data/adb/modules/* /data/adb/modules_update/")
-}
-
 fun setAppProfileTemplate(id: String, template: String): Boolean {
     val shell = getRootShell()
     val escapedTemplate = template.replace("\"", "\\\"")
