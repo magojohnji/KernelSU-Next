@@ -9,70 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="../assets/icons/ksu-next-tab.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        footer {
-            margin-top: auto;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff;
-        }
-
-        .navbar {
-            background-color: #000000;
-        }
-
-        .navbar-brand span {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-
-        .navbar-toggler {
-            background-color: #ffffff;
-        }
-
-        header {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 5rem 0;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-        }
-
-        ol {
-            padding-left: 1.5rem;
-        }
-
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 1.5rem 0;
-        }
-
-        footer a {
-            color: #ffffff;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
 <body>
@@ -88,7 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="../index.html">Home</a>
+                        <a class="nav-link text-light" href="https://rifsxd.github.io/KernelSU-Next/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="https://rifsxd.github.io/KernelSU-Next/#installation">Installation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Features</a>
+                    </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link text-light" href="devices.html">Devices</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/rifsxd/KernelSU-Next" target="_blank">
@@ -112,15 +58,50 @@
     <section class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Features</h2>
-            <ul class="list-unstyled text-center">
-                <li>✔️ Non-GKI kernel support from 4.x - 5.4 LTS (3.x is experimental).</li>
-                <li>✔️ GKI kernels support LKM/KMI methods for easy installation.</li>
-                <li>✔️ Magic Mount ensures fast, light, and convenient module mounting.</li>
-                <li>✔️ New manager features and UI overhaul.</li>
-                <li>✔️ Restoration of modules post-uninstallation.</li>
-                <li>✔️ Manager app auto-updates with new releases.</li>
-                <li>✔️ Frequent updates and upcoming features.</li>
-            </ul>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-microchip"></i> Non-GKI Kernel Support</h3>
+                        <p>Non-GKI kernel support from 4.x - 5.4 LTS (3.x is experimental).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-cogs"></i> GKI Kernel Support</h3>
+                        <p>GKI kernels support LKM/KMI methods for easy installation.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-magic"></i> Magic Mount</h3>
+                        <p>KernelSU-Next includes Magic Mount which provides a fast, light and convenient module mounting.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-tools"></i> New Manager Features</h3>
+                        <p>KernelSU-Next has a new, redesigned manager with several feature improvements and a UI overhaul.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-undo"></i> Module Restoration</h3>
+                        <p>KernelSU-Next allows for restoring modules even after uninstalling.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-sync-alt"></i> Auto-Updates</h3>
+                        <p>The KernelSU-Next Manager app updates automatically with new releases.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="feature-box text-center p-3 border border-dark rounded flex-fill">
+                        <h3><i class="fas fa-calendar-alt"></i> Frequent Updates</h3>
+                        <p>KernelSU-Next is frequently updated with lots of upcoming features.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

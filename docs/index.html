@@ -9,128 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/icons/ksu-next-tab.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        footer {
-            margin-top: auto;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .navbar {
-            background-color: #000000;
-        }
-
-        .navbar-brand span {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-
-        header {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 5rem 0;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-        }
-
-        .btn-copy {
-            background-color: #000000;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-copy:hover {
-            background-color: rgb(238, 238, 238);
-            color: #000000;
-        }
-
-        .navbar-toggler {
-            background-color: #ffffff;
-        }
-
-        ol {
-            padding-left: 1.5rem;
-        }
-
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 1.5rem 0;
-        }
-
-        footer a {
-            color: #ffffff;
-        }
-
-        .highlight {
-            background: #f8f9fa;
-            border-left: 5px solid #000000;
-            padding: 1rem;
-            font-size: 0.95rem;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-
-        .highlight code {
-            color: #000000;
-            font-family: monospace;
-        }
-
-        .header-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-icons {
-            font-size: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .contact-icons a {
-            color: #000000;
-            text-decoration: none;
-        }
-
-        .contact-icons a:hover {
-            color: #333333;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #cccccc;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md sticky-top py-3">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="https://rifsxd.github.io/KernelSU-Next/">
+            <a class="navbar-brand d-flex align-items-center" href="#">
                 <span>KernelSU Next</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,6 +24,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Home</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#installation">Installation</a>
                     </li>
@@ -173,15 +62,18 @@
     <section id="installation" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Installation</h2>
-            <p class="text-center">Run the following commands below for different installation options, should be ran inside the root of your kernel directory.</p>
+            <p class="text-center">Run the following commands below for different installation options, should be ran inside the root of your kernel's directory.</p>
+            <h3 class="mt-4">Latest</h3>
             <div class="highlight mt-3">
                 <code>curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -</code>
                 <button class="btn btn-copy mt-2" onclick="copyToClipboard(this)">Copy</button>
             </div>
+            <h3 class="mt-4">Next branch (dev)</h3>
             <div class="highlight mt-3">
                 <code>curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next</code>
                 <button class="btn btn-copy mt-2" onclick="copyToClipboard(this)">Copy</button>
             </div>
+            <h3 class="mt-4">Specific Tag</h3>
             <div class="highlight mt-3">
                 <code>curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.2-R14</code>
                 <button class="btn btn-copy mt-2" onclick="copyToClipboard(this)">Copy</button>
@@ -213,15 +105,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function copyToClipboard(button) {
-            var code = button.previousElementSibling.textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                button.textContent = "Copied!";
-                setTimeout(() => button.textContent = "Copy", 2000);
-            });
-        }
-    </script>
+    <script src="assets/js/copy.min.js"></script>
 </body>
 
 </html>
