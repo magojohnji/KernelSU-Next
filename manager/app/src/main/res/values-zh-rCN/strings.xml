@@ -66,7 +66,7 @@
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
     <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KSU daemon</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next's mount system.</string>
     <string name="restart_required">Restart Required</string>
     <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
     <string name="restart_now">Restart Now</string>
@@ -135,7 +135,7 @@
     <string name="app_profile_template_import_empty">剪贴板为空！</string>
     <string name="module_changelog_failed">获取更新日志失败: %s</string>
     <string name="settings_check_update">检查更新</string>
-    <string name="settings_check_update_summary">在应用启动后自动检查是否有最新版</string>
+    <string name="settings_check_update_summary">在应用启动后自动检查是否有最新版。</string>
     <string name="grant_root_failed">获取 root 失败！</string>
     <string name="action">执行</string>
     <string name="open">打开</string>

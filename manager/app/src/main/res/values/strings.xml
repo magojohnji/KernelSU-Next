@@ -67,7 +67,7 @@
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
     <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KSU daemon</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next's mount system.</string>
     <string name="restart_required">Restart Required</string>
     <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
     <string name="restart_now">Restart Now</string>
@@ -135,7 +135,7 @@
     <string name="app_profile_template_import_empty">Clipboard is empty!</string>
     <string name="module_changelog_failed">Fetch changelog failed: %s</string>
     <string name="settings_check_update">Check update</string>
-    <string name="settings_check_update_summary">Automatically check for updates when opening the app</string>
+    <string name="settings_check_update_summary">Automatically check for updates when opening the app.</string>
     <string name="grant_root_failed">Failed to grant root!</string>
     <string name="action">Action</string>
     <string name="open">Open</string>

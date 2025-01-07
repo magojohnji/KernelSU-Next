@@ -67,7 +67,7 @@
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
     <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KSU daemon</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next's mount system.</string>
     <string name="restart_required">Restart Required</string>
     <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
     <string name="restart_now">Restart Now</string>
@@ -113,7 +113,7 @@
     <string name="failed_to_update_sepolicy">Falha ao atualizar as regras do SELinux para: %s</string>
     <string name="module_changelog">Registro de alterações</string>
     <string name="settings_profile_template">Modelo do Perfil do Aplicativo</string>
-    <string name="settings_profile_template_summary">Gerencie o modelo local e online do Perfil do Aplicativo</string>
+    <string name="settings_profile_template_summary">Gerencie o modelo local e online do Perfil do Aplicativo.</string>
     <string name="app_profile_template_create">Criar modelo</string>
     <string name="app_profile_template_edit">Editar modelo</string>
     <string name="app_profile_template_id">ID</string>

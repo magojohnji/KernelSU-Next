@@ -67,7 +67,7 @@
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
     <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KSU daemon</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next's mount system.</string>
     <string name="restart_required">Restart Required</string>
     <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
     <string name="restart_now">Restart Now</string>
@@ -135,7 +135,7 @@
     <string name="app_profile_template_import_empty">Papan klip kosong!</string>
     <string name="module_changelog_failed">Gagal mengambil Changelog: %s</string>
     <string name="settings_check_update">Cek terbaru</string>
-    <string name="settings_check_update_summary">Cek terbaru setiap membuka aplikasi</string>
+    <string name="settings_check_update_summary">Cek terbaru setiap membuka aplikasi.</string>
     <string name="grant_root_failed">Gagal memberikan akses root!</string>
     <string name="action">Tindakan</string>
     <string name="open">Buka</string>
