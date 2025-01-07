@@ -17,12 +17,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  # build-lkm:
-  #   uses: ./.github/workflows/build-lkm.yml
-  #   secrets: inherit
+  build-lkm:
+    uses: ./.github/workflows/build-lkm.yml
+    secrets: inherit
 
   build-ksud_overlayfs:
-    # needs: build-lkm
+    needs: build-lkm
     strategy:
       matrix:
         include:

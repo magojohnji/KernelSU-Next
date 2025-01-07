@@ -430,7 +430,7 @@ fun getAppProfileTemplate(id: String): String {
 fun moduleMigration(): Boolean {
     val shell = getRootShell()
     // mirgate modules for module system switch
-    return ShellUtils.fastCmdResult(shell, "cp -r /data/adb/modules/* /data/adb/modules_update/")
+    return ShellUtils.fastCmdResult(shell, "mv /data/adb/modules/* /data/adb/modules_update/")
 }
 
 fun setAppProfileTemplate(id: String, template: String): Boolean {
