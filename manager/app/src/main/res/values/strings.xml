@@ -65,6 +65,13 @@
     <string name="module_magisk_conflict">Modules are unavailable due to a conflict with Magisk!</string>
     <string name="home_module_mount">Module system</string>
     <string name="home_magic_mount">Magic Mount</string>
+    <string name="home_overlayfs_mount">OverlayFS</string>
+    <string name="use_overlay_fs">Use OverlayFS</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KSU daemon</string>
+    <string name="restart_required">Restart Required</string>
+    <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
+    <string name="restart_now">Restart Now</string>
+    <string name="later">Later</string>
     <string name="home_next_kernelsu">🔥 Next build</string>
     <string name="home_next_kernelsu_repo">https://github.com/rifsxd/KernelSU-Next</string>
     <string name="home_next_kernelsu_body">Next experimental branch. Check it out on GitHub!</string>

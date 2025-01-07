@@ -497,7 +497,7 @@ private fun ModuleList(
             },
         ) {
             when {
-                !viewModel.isDummy -> {
+                !viewModel.isOverlayAvailable -> {
                     item {
                         Box(
                             modifier = Modifier.fillParentMaxSize(),

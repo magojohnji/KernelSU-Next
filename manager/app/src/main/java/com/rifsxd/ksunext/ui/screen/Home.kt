@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -347,6 +348,12 @@ fun WarningCard(
 private fun InfoCard() {
     val context = LocalContext.current
 
+    val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+
+    var useOverlayFs by rememberSaveable {
+        mutableStateOf(prefs.getBoolean("use_overlay_fs", false))
+    }
+
     ElevatedCard {
         Column(
             modifier = Modifier
@@ -421,7 +428,13 @@ private fun InfoCard() {
             Spacer(Modifier.height(16.dp))
             InfoCardItem(
                 label = stringResource(R.string.home_module_mount),
-                content = stringResource(R.string.home_magic_mount),
+                content = if (useOverlayFs) {
+                    // Show different content if OverlayFS is enabled
+                    stringResource(R.string.home_overlayfs_mount)
+                } else {
+                    // Default content when OverlayFS is not enabled
+                    stringResource(R.string.home_magic_mount)
+                },
                 icon = Icons.Filled.SettingsSuggest,
             )
         }

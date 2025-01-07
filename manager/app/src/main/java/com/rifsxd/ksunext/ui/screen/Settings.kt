@@ -28,6 +28,8 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
@@ -159,6 +161,46 @@ fun SettingScreen(navigator: DestinationsNavigator) {
             }
 
             val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+
+            var useOverlayFs by rememberSaveable {
+                mutableStateOf(
+                    prefs.getBoolean("use_overlay_fs", false)
+                )
+            }
+
+            var showRestartDialog by remember { mutableStateOf(false) }
+
+            SwitchItem(
+                icon = Icons.Filled.Build,
+                title = stringResource(id = R.string.use_overlay_fs),
+                summary = stringResource(id = R.string.use_overlay_fs_summary),
+                checked = useOverlayFs
+            ) {
+                prefs.edit().putBoolean("use_overlay_fs", it).apply()
+                useOverlayFs = it
+                showRestartDialog = true
+            }
+
+            if (showRestartDialog) {
+                AlertDialog(
+                    onDismissRequest = { showRestartDialog = false },
+                    title = { Text(stringResource(R.string.restart_required)) },
+                    text = { Text(stringResource(R.string.restart_message)) },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            showRestartDialog = false
+                            restartKsuNext(context)
+                        }) {
+                            Text(stringResource(R.string.restart_now))
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showRestartDialog = false }) {
+                            Text(stringResource(R.string.later))
+                        }
+                    }
+                )
+            }
 
             var checkUpdate by rememberSaveable {
                 mutableStateOf(
@@ -299,27 +341,31 @@ fun SettingScreen(navigator: DestinationsNavigator) {
                 )
             }
 
-            // val shrink = stringResource(id = R.string.shrink_sparse_image)
-            // val shrinkMessage = stringResource(id = R.string.shrink_sparse_image_message)
-            // ListItem(
-            //    leadingContent = {
-            //        Icon(
-            //             Icons.Filled.Compress,
-            //             shrink
-            //         )
-            //     },
-            //     headlineContent = { Text(shrink) },
-            //     modifier = Modifier.clickable {
-            //         scope.launch {
-            //             val result = shrinkDialog.awaitConfirm(title = shrink, content = shrinkMessage)
-            //             if (result == ConfirmResult.Confirmed) {
-            //                 loadingDialog.withLoading {
-            //                     shrinkModules()
-            //                 }
-            //             }
-            //         }
-            //     }
-            // )
+
+            if (useOverlayFs) {
+                val shrink = stringResource(id = R.string.shrink_sparse_image)
+                val shrinkMessage = stringResource(id = R.string.shrink_sparse_image_message)
+                ListItem(
+                    leadingContent = {
+                        Icon(
+                            Icons.Filled.Compress,
+                            shrink
+                        )
+                    },
+                    headlineContent = { Text(shrink) },
+                    modifier = Modifier.clickable {
+                        scope.launch {
+                            val result = shrinkDialog.awaitConfirm(title = shrink, content = shrinkMessage)
+                            if (result == ConfirmResult.Confirmed) {
+                                loadingDialog.withLoading {
+                                    shrinkModules()
+                                }
+                            }
+                        }
+                    }
+                )
+            }
+
 
             val lkmMode = Natives.version >= Natives.MINIMAL_SUPPORTED_KERNEL_LKM && Natives.isLkmMode
             if (lkmMode) {

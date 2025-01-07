@@ -2,6 +2,7 @@ package com.rifsxd.ksunext.ui.util
 
 import android.content.ContentResolver
 import android.content.Context
+import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Environment
@@ -22,15 +23,30 @@ import com.rifsxd.ksunext.ksuApp
 import org.json.JSONArray
 import java.io.File
 
-
 /**
  * @author weishu
  * @date 2023/1/1.
  */
 private const val TAG = "KsuCli"
 
-private fun getKsuDaemonPath(): String {
-    return ksuApp.applicationInfo.nativeLibraryDir + File.separator + "libksud.so"
+private fun ksuDaemonMagicPath(): String {
+    return ksuApp.applicationInfo.nativeLibraryDir + File.separator + "libksud_magic.so"
+}
+
+private fun ksuDaemonOverlayfsPath(): String {
+    return ksuApp.applicationInfo.nativeLibraryDir + File.separator + "libksud_overlayfs.so"
+}
+
+// Get the path based on the user's choice
+fun getKsuDaemonPath(): String {
+    val prefs = ksuApp.getSharedPreferences("settings", Context.MODE_PRIVATE)
+    val useOverlayFs = prefs.getBoolean("use_overlay_fs", false)
+    
+    return if (useOverlayFs) {
+        ksuDaemonOverlayfsPath()
+    } else {
+        ksuDaemonMagicPath()
+    }
 }
 
 object KsuCli {
@@ -358,12 +374,10 @@ suspend fun getSupportedKmis(): List<String> = withContext(Dispatchers.IO) {
     out.filter { it.isNotBlank() }.map { it.trim() }
 }
 
-fun hasDummy(): Boolean {
-//fun overlayFsAvailable(): Boolean {
-    // val shell = getRootShell()
-    // // check /proc/filesystems
-    // return ShellUtils.fastCmdResult(shell, "cat /proc/filesystems | grep overlay")
-    return true
+fun overlayFsAvailable(): Boolean {
+    val shell = getRootShell()
+    // check /proc/filesystems
+    return ShellUtils.fastCmdResult(shell, "cat /proc/filesystems | grep overlay")
 }
 
 fun hasMagisk(): Boolean {
@@ -446,4 +460,11 @@ fun launchApp(packageName: String) {
 fun restartApp(packageName: String) {
     forceStopApp(packageName)
     launchApp(packageName)
+}
+
+fun restartKsuNext(context: Context) {
+    val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
+    intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+    context.startActivity(intent)
+    Runtime.getRuntime().exit(0)
 }
