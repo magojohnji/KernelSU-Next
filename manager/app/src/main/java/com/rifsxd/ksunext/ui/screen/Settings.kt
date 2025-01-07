@@ -179,6 +179,7 @@ fun SettingScreen(navigator: DestinationsNavigator) {
                 prefs.edit().putBoolean("use_overlay_fs", it).apply()
                 useOverlayFs = it
                 showRestartDialog = true
+                moduleMigration()
             }
 
             if (showRestartDialog) {
