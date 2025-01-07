@@ -1,5 +1,5 @@
-name: Contribute to Officially Supported Devices
-description: Add your device kernel source to KernelSU Next's Officially Supported Device List
+name: Contribute to Unofficially Supported Devices
+description: Add your device kernel source to KernelSU Next's Unofficially Supported Device List
 title: "[Add Device]: "
 labels: ["add-device"]
 body:
