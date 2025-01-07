@@ -86,29 +86,25 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ksud_overlayfs-aarch64-linux-android
-          path: ./overlayfs
-
-      - name: Verify artifact structure
-        run: |
-          ls -R ./overlayfs
+          path: .
       
       - name: Copy ksud_overlayfs to app jniLibs
         run: |
-          cp -f ./overlayfs/aarch64-linux-android/release/ksud ../manager/app/src/main/jniLibs/arm64-v8a/libksud_overlayfs.so
+          cp -f ../aarch64-linux-android/release/ksud ../manager/app/src/main/jniLibs/arm64-v8a/libksud_overlayfs.so
+          
+      - name: Remove ksud_overlayfs-aarch64-linux-android
+        run: |
+          rm ksud_overlayfs-aarch64-linux-android
       
       - name: Download arm64 ksud_magic
         uses: actions/download-artifact@v4
         with:
           name: ksud_magic-aarch64-linux-android
-          path: ./magic
+          path: .
 
-      - name: Verify artifact structure
-        run: |
-          ls -R ./magic
-      
       - name: Copy ksud_magic to app jniLibs
         run: |
-          cp -f ./magic/aarch64-linux-android/release/ksud ../manager/app/src/main/jniLibs/arm64-v8a/libksud_magic.so      
+          cp -f ../aarch64-linux-android/release/ksud ../manager/app/src/main/jniLibs/arm64-v8a/libksud_magic.so      
 
       - name: Build with Gradle
         run: |
