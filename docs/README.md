@@ -1,4 +1,4 @@
-**English** | [简体中文](/docs/README_CN.md) | [Türkçe](/docs/README_TR.md) | [Português (Brasil)](/docs/README_PT-BR.md)
+**English** | [简体中文](README_CN.md) | [Türkçe](README_TR.md) | [Português (Brasil)](README_PT-BR.md) | [한국어](README_KO.md)
 
 # KernelSU Next
 
