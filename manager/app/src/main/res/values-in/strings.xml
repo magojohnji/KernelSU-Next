@@ -65,8 +65,6 @@
     <string name="home_module_mount">Modul Sistem</string>
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
-    <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next\'s mount system.</string>
     <string name="home_next_kernelsu">🔥 Pembangunan Next</string>
     <string name="home_next_kernelsu_repo">https://github.com/rifsxd/KernelSU-Next</string>
     <string name="home_next_kernelsu_body">Next cabang eksperimental. Lihat di GitHub!</string>

@@ -65,8 +65,8 @@
     <string name="home_module_mount">Module system</string>
     <string name="home_magic_mount">Magic Mount</string>
     <string name="home_overlayfs_mount">OverlayFS</string>
-    <string name="use_overlay_fs">Use OverlayFS</string>
-    <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next\'s mount system.</string>
+    <string name="use_overlay_fs">Use OverlayFS (Experimental)</string>
+    <string name="use_overlay_fs_summary">Toggle between using OverlayFS over Magic Mount for KernelSU Next\'s mount system.</string>
     <string name="reboot_required">Reboot Required</string>
     <string name="reboot_message">Changes will take effect after rebooting the system. Would you like to reboot now?</string>
     <string name="later">Later</string>
