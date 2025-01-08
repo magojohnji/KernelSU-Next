@@ -31,7 +31,6 @@
     <string name="module_failed_to_disable">Falha ao desativar o módulo %s</string>
     <string name="module_empty">Nenhum módulo instalado</string>
     <string name="module">Módulo</string>
-    <string name="confirm_module_installation">Confirmação de instalação</string>
     <string name="module_install_prompt_with_name">Deseja continuar instalando o módulo %1$s?</string>
     <string name="module_sort_a_to_z">Ordenar (A-Z)</string>
     <string name="module_sort_z_to_a">Ordenar (Z-A)</string>
@@ -68,10 +67,6 @@
     <string name="home_overlayfs_mount">OverlayFS</string>
     <string name="use_overlay_fs">Use OverlayFS</string>
     <string name="use_overlay_fs_summary">Toggle between using OverlayFS or Magic for KernelSU Next\'s mount system.</string>
-    <string name="restart_required">Restart Required</string>
-    <string name="restart_message">Changes will take effect after restarting the app. Would you like to restart now?</string>
-    <string name="restart_now">Restart Now</string>
-    <string name="later">Later</string>
     <string name="home_next_kernelsu">🔥 Compilação next</string>
     <string name="home_next_kernelsu_repo">https://github.com/rifsxd/KernelSU-Next</string>
     <string name="home_next_kernelsu_body">Branch next experimental. Confira no GitHub!</string>

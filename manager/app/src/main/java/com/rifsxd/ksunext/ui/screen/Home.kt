@@ -354,6 +354,10 @@ private fun InfoCard() {
         mutableStateOf(prefs.getBoolean("use_overlay_fs", false))
     }
 
+    LaunchedEffect(Unit) {
+        useOverlayFs = prefs.getBoolean("use_overlay_fs", false)
+    }
+
     ElevatedCard {
         Column(
             modifier = Modifier
@@ -429,10 +433,8 @@ private fun InfoCard() {
             InfoCardItem(
                 label = stringResource(R.string.home_module_mount),
                 content = if (useOverlayFs) {
-                    // Show different content if OverlayFS is enabled
                     stringResource(R.string.home_overlayfs_mount)
                 } else {
-                    // Default content when OverlayFS is not enabled
                     stringResource(R.string.home_magic_mount)
                 },
                 icon = Icons.Filled.SettingsSuggest,

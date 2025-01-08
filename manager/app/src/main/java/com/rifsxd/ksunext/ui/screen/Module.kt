@@ -96,6 +96,7 @@ import com.rifsxd.ksunext.R
 import com.rifsxd.ksunext.ui.component.ConfirmResult
 import com.rifsxd.ksunext.ui.component.rememberConfirmDialog
 import com.rifsxd.ksunext.ui.component.rememberLoadingDialog
+import com.rifsxd.ksunext.ui.util.*
 import com.rifsxd.ksunext.ui.util.DownloadListener
 import com.rifsxd.ksunext.ui.util.LocalSnackbarHost
 import com.rifsxd.ksunext.ui.util.download
@@ -240,8 +241,7 @@ fun ModuleScreen(navigator: DestinationsNavigator) {
     ) { innerPadding ->
         // confirmation dialog
         if (showConfirmDialog && zipUri != null) {
-            // extract the module name from the zipUri
-            val moduleName = zipUri?.lastPathSegment?.substringAfterLast('/') ?: "Unknown Module"
+            val moduleName = getFileName(context, zipUri!!)
 
             AlertDialog(
                 onDismissRequest = { showConfirmDialog = false },
@@ -251,7 +251,6 @@ fun ModuleScreen(navigator: DestinationsNavigator) {
                         navigator.navigate(FlashScreenDestination(FlashIt.FlashModule(zipUri!!)))
 
                         viewModel.markNeedRefresh()
-
                     }) {
                         Text(stringResource(R.string.confirm))
                     }
@@ -261,14 +260,15 @@ fun ModuleScreen(navigator: DestinationsNavigator) {
                         Text(stringResource(android.R.string.cancel))
                     }
                 },
-                title = { Text(stringResource(R.string.confirm_module_installation)) },
-                text = { 
+                title = { Text(stringResource(R.string.module)) },
+                text = {
                     Text(
                         stringResource(R.string.module_install_prompt_with_name, moduleName)
-                    ) 
+                    )
                 }
             )
         }
+
 
         when {
             hasMagisk -> {

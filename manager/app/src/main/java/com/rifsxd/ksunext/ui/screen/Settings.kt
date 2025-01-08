@@ -70,6 +70,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.rifsxd.ksunext.BuildConfig
 import com.rifsxd.ksunext.Natives
+import com.rifsxd.ksunext.ksuApp
 import com.rifsxd.ksunext.R
 import com.rifsxd.ksunext.ui.component.AboutDialog
 import com.rifsxd.ksunext.ui.component.ConfirmResult
@@ -168,7 +169,9 @@ fun SettingScreen(navigator: DestinationsNavigator) {
                 )
             }
 
-            var showRestartDialog by remember { mutableStateOf(false) }
+            val isManager = Natives.becomeManager(ksuApp.packageName)
+
+            var showRebootDialog by remember { mutableStateOf(false) }
 
             SwitchItem(
                 icon = Icons.Filled.Build,
@@ -178,24 +181,25 @@ fun SettingScreen(navigator: DestinationsNavigator) {
             ) {
                 prefs.edit().putBoolean("use_overlay_fs", it).apply()
                 useOverlayFs = it
-                showRestartDialog = true
+                if (isManager) install()
+                showRebootDialog = true
             }
 
-            if (showRestartDialog) {
+            if (showRebootDialog) {
                 AlertDialog(
-                    onDismissRequest = { showRestartDialog = false },
-                    title = { Text(stringResource(R.string.restart_required)) },
-                    text = { Text(stringResource(R.string.restart_message)) },
+                    onDismissRequest = { showRebootDialog = false },
+                    title = { Text(stringResource(R.string.reboot_required)) },
+                    text = { Text(stringResource(R.string.reboot_message)) },
                     confirmButton = {
                         TextButton(onClick = {
-                            showRestartDialog = false
-                            restartKsuNext(context)
+                            showRebootDialog = false
+                            reboot()
                         }) {
-                            Text(stringResource(R.string.restart_now))
+                            Text(stringResource(R.string.reboot))
                         }
                     },
                     dismissButton = {
-                        TextButton(onClick = { showRestartDialog = false }) {
+                        TextButton(onClick = { showRebootDialog = false }) {
                             Text(stringResource(R.string.later))
                         }
                     }
