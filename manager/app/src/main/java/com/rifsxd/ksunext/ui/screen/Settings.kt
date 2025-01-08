@@ -163,6 +163,8 @@ fun SettingScreen(navigator: DestinationsNavigator) {
 
             val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
+            val hasShownWarning = rememberSaveable { mutableStateOf(prefs.getBoolean("has_shown_warning", false)) }
+
             var useOverlayFs by rememberSaveable {
                 mutableStateOf(
                     prefs.getBoolean("use_overlay_fs", false)
@@ -173,16 +175,41 @@ fun SettingScreen(navigator: DestinationsNavigator) {
 
             var showRebootDialog by remember { mutableStateOf(false) }
 
+            var showWarningDialog by remember { mutableStateOf(false) }
+
             SwitchItem(
                 icon = Icons.Filled.Build,
                 title = stringResource(id = R.string.use_overlay_fs),
                 summary = stringResource(id = R.string.use_overlay_fs_summary),
                 checked = useOverlayFs
             ) {
-                prefs.edit().putBoolean("use_overlay_fs", it).apply()
-                useOverlayFs = it
-                if (isManager) install()
-                showRebootDialog = true
+                if (!hasShownWarning.value) {
+                    showWarningDialog = true
+                }
+            }
+
+            if (showWarningDialog) {
+                AlertDialog(
+                    onDismissRequest = { showWarningDialog = false },
+                    title = { Text(stringResource(R.string.warning)) },
+                    text = { Text(stringResource(R.string.warning_message)) },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            showWarningDialog = false
+                            prefs.edit().putBoolean("use_overlay_fs", !useOverlayFs).apply()
+                            useOverlayFs = !useOverlayFs
+                            if (isManager) install()
+                            showRebootDialog = true
+                        }) {
+                            Text(stringResource(R.string.proceed))
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showWarningDialog = false }) {
+                            Text(stringResource(R.string.cancel))
+                        }
+                    }
+                )
             }
 
             if (showRebootDialog) {
@@ -205,6 +232,7 @@ fun SettingScreen(navigator: DestinationsNavigator) {
                     }
                 )
             }
+
 
             var checkUpdate by rememberSaveable {
                 mutableStateOf(

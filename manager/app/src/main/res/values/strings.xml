@@ -69,6 +69,10 @@
     <string name="use_overlay_fs_summary">Toggle between using OverlayFS over Magic Mount for KernelSU Next\'s mount system.</string>
     <string name="reboot_required">Reboot Required</string>
     <string name="reboot_message">Changes will take effect after rebooting the system. Would you like to reboot now?</string>
+    <string name="warning">Warning</string>
+    <string name="warning_message">This feature is still in beta and under development. Please ensure you backup your modules before proceeding. Use this feature only if you understand the potential risks. Proceed with caution.</string>
+    <string name="proceed">Proceed</string>
+    <string name="cancel">Cancel</string>
     <string name="later">Later</string>
     <string name="home_next_kernelsu">🔥 Next build</string>
     <string name="home_next_kernelsu_repo">https://github.com/rifsxd/KernelSU-Next</string>
